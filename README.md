@@ -9,6 +9,8 @@ Geheugen Van Nederland pilot visualisatie linked open data
 
 ### Rijksmonumenten gelinkt aan Rietveld
 
+Wikidata ID Gerrit Rietveld: [Q160435](https://www.wikidata.org/wiki/Q160435)
+
 | Cultural Historical Object Number | Rijksmonument number | Wikidata ID | 
 | -------             | --- | --- |
 | [29889](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/29889) | 478197 | [Q17456057](http://www.wikidata.org/entity/Q17456057)|
