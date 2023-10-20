@@ -9,12 +9,12 @@ Geheugen Van Nederland pilot visualisatie linked open data
 
 ### Rijksmonumenten gelinkt aan Rietveld
 
-| Cultural Historical Object Number | Rijksmonument number |
-| -------             | --- |
-| [29889](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/29889) | 478197 |
-| [17545](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/17545) | 508757 |
-| [48343](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/48343) | 510001 |
-| [37437](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/37437) | 514238 |
+| Cultural Historical Object Number | Rijksmonument number | Wikimedia ID | 
+| -------             | --- | --- |
+| [29889](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/29889) | 478197 | [Q17456057](http://www.wikidata.org/entity/Q17456057)|
+| [17545](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/17545) | 508757 | []()|
+| [48343](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/48343) | 510001 | []()|
+| [37437](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/37437) | 514238 | []()|
 | [20606](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/20606) | 514419 |
 | [25941](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/25941) | 516159 |
 | [41322](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/41322) | 526817 |
