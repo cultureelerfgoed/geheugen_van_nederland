@@ -14,7 +14,7 @@ Geheugen Van Nederland pilot visualisatie linked open data
 | [Art Institute Chicago](https://collectiononline.design-museum.de/#/de/person/10308?_k=5jvfvh) | Stoelen | Auteursrechten & LOD |
 | [architectureguide](https://www.architectureguide.nl/project/list_projects_of_architect/arc_id/846) | gebouwen en tekeningen | LOD |
 | [rietveldoriginals](https://rietveldoriginals.com/) | vele afbeeldingen/webwinkel | auteursrecht & LOD |
-| [Centraal Museum](https://geheugen.delpher.nl/en/geheugen/results?query=rietveld&page=1&maxperpage=36&coll=ngvn) | bouwtekeningen, brieven en prenten | Auteursrechten & LOD |
+| [Centraal Museum](https://geheugen.delpher.nl/en/geheugen/results?query=rietveld&page=1&maxperpage=36&coll=ngvn) | bouwtekeningen, brieven en prenten | [Auteursrechten](https://geheugen.delpher.nl/en/geheugen/pages/collectie/Rietveld+Schr%C3%B6derarchief/Auteursrecht+Rietveld) & LOD |
 
 ### ID's Gerrit Thomas Rietveld
 
