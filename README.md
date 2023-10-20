@@ -9,6 +9,7 @@ Geheugen Van Nederland pilot visualisatie linked open data
 | Databron | objecten | Beperking LOD link |
 | --- | --- | --- |
 | [Collectie Gelderland](https://www.collectiegelderland.nl/zoeken?term=rietveld&page=1&filter=search_s_has_media-Ja) | afbeelding stoelen, prenten en tekeningen | Auteursrecht & LOD |
+| [Museum of Modern Art](https://www.moma.org/artists/4922#works) | stoelen, lampen | Auteursrecht & LOD |
 
 ### ID's Gerrit Thomas Rietveld
 
