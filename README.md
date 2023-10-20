@@ -10,6 +10,10 @@ Geheugen Van Nederland pilot visualisatie linked open data
 | --- | --- | --- |
 | [Collectie Gelderland](https://www.collectiegelderland.nl/zoeken?term=rietveld&page=1&filter=search_s_has_media-Ja) | afbeelding stoelen, prenten en tekeningen | Auteursrecht & LOD |
 | [Museum of Modern Art](https://www.moma.org/artists/4922#works) | stoelen, lampen | Auteursrecht & LOD |
+| [Vitra Design Museum](https://collectiononline.design-museum.de/#/de/person/10308?_k=5jvfvh) | stoelen & bureaus | Auteursrechten & LOD |
+| [Art Institute Chicago](https://collectiononline.design-museum.de/#/de/person/10308?_k=5jvfvh) | Stoelen | Auteursrechten & LOD |
+| [architectureguide](https://www.architectureguide.nl/project/list_projects_of_architect/arc_id/846) | gebouwen en tekeningen | LOD |
+| [rietveldoriginals](https://rietveldoriginals.com/) | vele afbeeldingen/webwinkel | auteursrecht & LOD |
 
 ### ID's Gerrit Thomas Rietveld
 
