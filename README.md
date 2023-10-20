@@ -6,10 +6,14 @@ Geheugen Van Nederland pilot visualisatie linked open data
 - 'collectie_rietveld.ipynb' 
 
 
+### ID's Gerrit Thomas Rietveld
+
+| Datahost | ID |
+| --- | --- |
+| Wikidata | [Q160435](https://www.wikidata.org/wiki/Q160435) |
+| RKD | [66880](https://rkd.nl/nl/explore/artists/66880) |
 
 ### Rijksmonumenten gelinkt aan Rietveld
-
-Wikidata ID Gerrit Rietveld: [Q160435](https://www.wikidata.org/wiki/Q160435)
 
 | Cultural Historical Object Number | Rijksmonument number | Wikidata ID | 
 | -------             | --- | --- |
