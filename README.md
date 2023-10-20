@@ -5,6 +5,10 @@ Geheugen Van Nederland pilot visualisatie linked open data
 
 - 'collectie_rietveld.ipynb' 
 
+### Databronnen in niet LOD en/of auteursrechtelijk beschermd
+| Databron | objecten | Beperking LOD link |
+| --- | --- | --- |
+| [Collectie Gelderland](https://www.collectiegelderland.nl/zoeken?term=rietveld&page=1&filter=search_s_has_media-Ja) | afbeelding stoelen, prenten en tekeningen | Auteursrecht & LOD |
 
 ### ID's Gerrit Thomas Rietveld
 
