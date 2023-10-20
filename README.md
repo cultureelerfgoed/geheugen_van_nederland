@@ -17,6 +17,7 @@ Geheugen Van Nederland pilot visualisatie linked open data
 
 | Cultural Historical Object Number | Rijksmonument number | Wikidata ID | 
 | -------             | --- | --- |
+|   | [18329](https://monumentenregister.cultureelerfgoed.nl/monumenten/18329) | [Q914231](https://www.wikidata.org/wiki/Q914231)
 | [29889](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/29889) | 478197 | [Q17456057](http://www.wikidata.org/entity/Q17456057)|
 | [17545](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/17545) | 508757 | [Q17459632](http://www.wikidata.org/entity/Q17459632)|
 | [48343](https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/48343) | 510001 | [Q17460484](http://www.wikidata.org/entity/Q17460484)|
