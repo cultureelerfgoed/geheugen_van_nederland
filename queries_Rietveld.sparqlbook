@@ -1,0 +1,32 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Beeldbank",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "\n# [endpoint=https://api.data.netwerkdigitaalerfgoed.nl/datasets/hetutrechtsarchief/Beeldbank/services/Beeldbank/sparql]\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX edm: <http://www.europeana.eu/schemas/edm/>\n\nSELECT DISTINCT *\nWHERE {\n    ?cho dc:description ?d .\n    ?cho edm:isShownBy ?img.\n        {Filter regex(?d, \"gerrit rietveld | Th\\\\. Rietveld | G\\\\. Rietveld | Th\\\\.Rietveld | Gerrit Thomas Rietveld | Th\\\\.Rietveld | rietveld | Rietveld\", \"i\")}\n    \n\n}\nlimit 5\n",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## graph:instanties-rce",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX graph: <https://linkeddata.cultureelerfgoed.nl/graph/>\n\nSELECT ?rijksmonument ?functie ?rijksmonumentnummer ?rol ?geoLocatie ?omschrijving \n\nWHERE{\n \n GRAPH graph:instanties-rce {\n  ?rijksmonument ceo:heeftOorspronkelijkeFunctie/ceo:heeftFunctieNaam/skos:prefLabel ?functie.\n  ?rijksmonument ceo:rijksmonumentnummer ?rijksmonumentnummer.\n  ?rijksmonument ceo:heeftOmschrijving/ceo:omschrijving ?omschrijving.\n  ?rijksmonument ceo:heeftOmschrijving/ceo:formeelStandpunt \"1\"^^xsd:boolean ;\n  \n\nOPTIONAL {?rijksmonument ceo:heeftGeometrie/geo:asWKT ?geoLocatie.} #MULTIPOLYGON(((5.1485962068792 52.085073758205,5.1485377129388 52.085098805504...\n# Datacleaning regex & select first 2. for lat & long.\nMINUS {?rijksmonument ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/3e79bb7c-b459-4998-a9ed-78d91d069227>}\n\n#selecteer alle monumenten van Rietveld in de actor en beschrijving \nFILTER REGEX(?omschrijving, \"gerrit rietveld | Th\\\\. Rietveld | G\\\\. Rietveld | Th\\\\.Rietveld | Gerrit Thomas Rietveld | Th\\\\.Rietveld\", \"i\")\n\n }\n}\n\nLIMIT 5\n ",
+    "metadata": {}
+  }
+]
