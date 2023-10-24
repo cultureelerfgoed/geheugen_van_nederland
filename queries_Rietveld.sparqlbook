@@ -38,7 +38,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "# [https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Afbeeldingen/services/Afbeeldingen/sparql]\nPREFIX edm: <http://www.europeana.eu/schemas/edm/>\nPREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n \n\nSELECT ?rijksmonument ?rijksmonumentnummer\n?omschrijving\n?afbeelding\n\nWHERE{\n  \n  \n  ?rijksmonument ceo:rijksmonumentnummer ?rijksmonumentnummer ;\n                    edm:isShownBy ?afbeelding ;\n                    dc:description ?omschrijving .\n\n\n}\nLIMIT 5",
+    "value": "# [https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Afbeeldingen/services/Afbeeldingen/sparql]\nPREFIX edm: <http://www.europeana.eu/schemas/edm/>\nPREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n \n\nSELECT ?rijksmonument \n?rijksmonumentnummer\n# ?titel\n# ?collectie\n# ?locatie\n# ?id\n# ?creator\n# ?contributor\n# ?periode\n?omschrijving\n?afbeelding\n\nWHERE{\n  \n  \n  ?rijksmonument ceo:rijksmonumentnummer ?rijksmonumentnummer ;\n                    edm:isShownBy ?afbeelding ;\n                    dc:description ?omschrijving .\n\n\n}\nLIMIT 5",
     "metadata": {}
   },
   {
@@ -51,6 +51,42 @@
     "kind": 2,
     "language": "sparql",
     "value": "PREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\n# [https://api.data.netwerkdigitaalerfgoed.nl/datasets/Rijksmuseum/collection/services/collection/sparql]\n\nSELECT ?rijksmonument\n# ?rijksmonumentnummer\n?titel\n?collectie\n?locatie\n?id #geen idee van wat\n?creator\n?contributor\n?periode\n?omschrijving\n?afbeelding\n\nWHERE{\nSERVICE <https://api.data.netwerkdigitaalerfgoed.nl/datasets/Rijksmuseum/collection/services/collection/sparql>{\n\n?rijksmonument dc:creator ?ontwerper ;\n                dc:description ?omschrijving ;\n                dc:title ?titel ;\n                dc:creator/skos:prefLabel ?creator ;\n                dct:isPartOf ?collectie ;\n                dct:spatial/skos:prefLabel ?locatie ;\n                dc:identifier ?id ;\n                dc:contributor/skos:prefLabel ?contributor ;\n                dct:created ?periode .\n\n\n# FILTER(lang(?voorwerp)='nl' && lang(?beschrijving)='nl')\n#FILTER(?ontwerperNaam =\"Rietveld, Gerrit Thomas\"@nl)\n\n}\n\n}\nLIMIT 5",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Het nieuwe instituut",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX dct: <http://purl.org/dc/terms/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX con:  <https://collectiedata.hetnieuweinstituut.nl/model/con/thesau/2109#>\n\n\nSELECT ?rijksmonument\n# Rijksmonumentnummer\n?titel\n#?collectie\n?locatie\n#?id #geen idee van wat\n#?creator\n#?contributor\n#?periode\n?omschrijving\n#?afbeelding\n\nWHERE{\n\n    {SERVICE <https://api.collectiedata.hetnieuweinstituut.nl/datasets/the-other-interface/knowledge-graph/services/knowledge-graph/sparql>{\n\n \n ?rijksmonument rico:isAgentAssociatedWithAgent <https://collectiedata.hetnieuweinstituut.nl/id/people/12546> ;\n                skos:prefLabel ?omschrijving .\nOPTIONAL{?rijksmonument rico:titel ?titel .}\nOPTIONAL{?rijksmonument rico:scopeAndContent ?collectie .}\nOPTIONAL{?rijksmonument rico:hasOrHadIdentifier ?id .}\nOPTIONAL{?rijksmonument rico:isOrWasHolderOf/schema:foundingLocation/rdfs:seeAlso ?locatie.}\n\n\n  }\n}\n} \nLIMIT 5\n\n",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "#### dataset 2",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX dct: <http://purl.org/dc/terms/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX con:  <https://collectiedata.hetnieuweinstituut.nl/model/con/thesau/2109#>\n\n\nSELECT ?rijksmonument\n# Rijksmonumentnummer\n?titel\n#?collectie\n# ?locatie\n#?id #geen idee van wat\n#?creator\n#?contributor\n#?periode\n# ?omschrijving\n#?afbeelding\n\nWHERE{\n\n    {SERVICE <https://api.collectiedata.hetnieuweinstituut.nl/datasets/the-other-interface/knowledge-graph/services/knowledge-graph/sparql>{\n\n?rijksmonument dct:contributor <https://collectiedata.hetnieuweinstituut.nl/id/people/12546> .\n?rijksmonument <https://collectiedata.hetnieuweinstituut.nl/model/con/thesau/2109#> <https://collectiedata.hetnieuweinstituut.nl/id/people/12546> . #vervaardiger gerrit rietveld\nOPTIONAL{?rijksmonument rico:title ?titel .}\n\n\n\n  }\n}\n} \n\n\n",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "#### dataset 3",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX sdo: <https://schema.org/>\nPREFIX rel: <http://id.loc.gov/vocabulary/relators/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX bif: <http://www.openlinksw.com/schemas/bif#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX con:  <https://collectiedata.hetnieuweinstituut.nl/model/con/thesau/2109#>\n\n\n\nSELECT *\n#?rijksmonument\n# Rijksmonumentnummer\n#?titel\n#?collectie\n# ?locatie\n#?id #geen idee van wat\n#?creator\n#?contributor\n#?periode\n# ?omschrijving\n#?afbeelding\n\nWHERE{\n\n    {SERVICE <https://api.collectiedata.hetnieuweinstituut.nl/datasets/the-other-interface/knowledge-graph/services/knowledge-graph/sparql>{\n\n?rijksmonument rel:cre <https://collectiedata.hetnieuweinstituut.nl/id/people/12546> .\nOPTIONAL{?rijksmonument rel:cre/schema:name ?o .}\nOPTIONAL{?rijksmonument sdo:identifier ?id .}\nOPTIONAL{?rijksmonument skos:prefLabel ?omschrijving .}\n\n\n\n\n\n  }\n}\n} \n\n\n",
     "metadata": {}
   }
 ]
