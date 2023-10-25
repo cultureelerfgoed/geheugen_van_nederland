@@ -8,7 +8,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX wd: <http://www.wikidata.org/entity/>\n\n\n\nSELECT *\nWHERE{\n    SERVICE <https://query.wikidata.org/sparql>{\n    ?wikirm wdt:P1435 wd:Q916333.  # wikinr rijksmonument\n    ?wikirm wdt:P18 ?afbeelding.  \n    ?wikirm wdt:P359 ?rijksmonumentnummer.  # wikidata nr match naar rijksmonumentnummer\n    ?wikirm \n\n    FILTER(?rijksmonumentnummer IN (\"514419\",\"478197\", \"508757\"))\n  }\n}\n\nLIMIT 10",
+    "value": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX wd: <http://www.wikidata.org/entity/>\n\nSELECT DISTINCT \n?wikirm\n?rijksmonumentnummer\n?creator\n?locatie\n?geoLocatie\n?periode\n#?startjaar\n?afbeelding\nWHERE{\n    SERVICE <https://query.wikidata.org/sparql>{\n    ?wikirm wdt:P1435 wd:Q916333.  # wikinr rijksmonument\n    ?wikirm wdt:P18 ?afbeelding.  \n    ?wikirm wdt:P359 ?rijksmonumentnummer.  # wikidata nr match naar rijksmonumentnummer\n\n    OPTIONAL{?wikirm wdt:P571 ?periode .}\n   ?wikirm <https://www.wikidata.org/wiki/Q160435> ?creator .\n    OPTIONAL{?wikirm wdt:P276/rdfs:label ?locatie.\n     FILTER(LANG(?locatie) = 'nl')}\n\n    OPTIONAL{?wikirm wdt:P625 ?geoLocatie .}\n   \n\n  FILTER(?rijksmonumentnummer IN (\"478197\",\"510001\" , \n  \"514238\" , \"514419\", \"516159\", \"526817\", \"527848\", \n  \"530871\", \"530873\", \"530911\", \"530922\", \"531184\", \n  \"532131\"))\n  }\n}\n\nLIMIT 10",
     "metadata": {}
   },
   {
