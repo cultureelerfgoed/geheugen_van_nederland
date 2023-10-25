@@ -1,0 +1,11 @@
+prefix=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env
+exec_prefix=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env
+libdir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/lib
+includedir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.32.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid

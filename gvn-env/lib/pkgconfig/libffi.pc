@@ -1,0 +1,11 @@
+prefix=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.4
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}

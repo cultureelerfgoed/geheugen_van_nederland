@@ -1,0 +1,13 @@
+prefix=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env
+exec_prefix=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env
+libdir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/lib
+sharedlibdir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/lib
+includedir=/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

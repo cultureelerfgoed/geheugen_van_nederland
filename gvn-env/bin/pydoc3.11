@@ -1,0 +1,5 @@
+#!/home/sablina/Documents/GitHub/geheugen_van_nederland/gvn-env/bin/python3.11
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()
