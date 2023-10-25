@@ -8,13 +8,13 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "## Beeldbank",
+    "value": "## Beeldbank: geen goed rietveld",
     "metadata": {}
   },
   {
     "kind": 2,
     "language": "sparql",
-    "value": "\n# [endpoint=https://api.data.netwerkdigitaalerfgoed.nl/datasets/hetutrechtsarchief/Beeldbank/services/Beeldbank/sparql]\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX edm: <http://www.europeana.eu/schemas/edm/>\n\nSELECT DISTINCT *\nWHERE {\n    ?cho dc:description ?beschrijving .\n    ?cho edm:isShownBy ?img.\n        {Filter regex(?beschrijving, \"gerrit rietveld | Th\\\\. Rietveld | G\\\\. Rietveld | Th\\\\.Rietveld | Gerrit Thomas Rietveld | Th\\\\.Rietveld | rietveld | Rietveld\", \"i\")}\n    \n\n}\nlimit 5\n",
+    "value": "\n# [endpoint=https://api.data.netwerkdigitaalerfgoed.nl/datasets/hetutrechtsarchief/Beeldbank/services/Beeldbank/sparql]\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX edm: <http://www.europeana.eu/schemas/edm/>\n\nSELECT DISTINCT \n#?rijksmonument \n#?rijksmonumentnummer \n# ?titel\n?collectie\n#?objectType\n#?locatie\n#?geoLocatie\n# ?long\n# ?lat\n#?id\n# ?creator\n# ?contributor\n# ?periode\n# ?startjaar\n# ?eindjaar\n#?datum\n?beschrijving \n?afbeelding\n\n\nWHERE {\n    {SERVICE <https://api.data.netwerkdigitaalerfgoed.nl/datasets/hetutrechtsarchief/Beeldbank/services/Beeldbank/sparql>{\n    ?rijksmonument dc:description ?beschrijving .\n    \n    ?rijksmonument edm:isShownBy ?afbeelding.\n        {Filter regex(?beschrijving, \"gerrit rietveld | Th\\\\. Rietveld | G\\\\. Rietveld | Th\\\\.Rietveld | Gerrit Thomas Rietveld | Th\\\\.Rietveld | rietveld | Rietveld\", \"i\")}\n    \n\n}\n}\n}\nLIMIT 5",
     "metadata": {}
   },
   {
