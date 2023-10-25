@@ -8,7 +8,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX wd: <http://www.wikidata.org/entity/>\n\n\n\nSELECT *\nWHERE{\n    SERVICE <https://query.wikidata.org/sparql>{\n    ?wikirm wdt:P1435 wd:Q916333.  # wikinr rijksmonument\n    ?wikirm wdt:P18 ?afbeelding.  \n    ?wikirm wdt:P359 ?rijksmonumentnummer.  # wikidata nr match naar rijksmonumentnummer\n  }\n}\n\nLIMIT 10",
+    "value": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX wd: <http://www.wikidata.org/entity/>\n\n\n\nSELECT *\nWHERE{\n    SERVICE <https://query.wikidata.org/sparql>{\n    ?wikirm wdt:P1435 wd:Q916333.  # wikinr rijksmonument\n    ?wikirm wdt:P18 ?afbeelding.  \n    ?wikirm wdt:P359 ?rijksmonumentnummer.  # wikidata nr match naar rijksmonumentnummer\n    ?wikirm \n\n    FILTER(?rijksmonumentnummer IN (\"514419\",\"478197\", \"508757\"))\n  }\n}\n\nLIMIT 10",
     "metadata": {}
   },
   {
