@@ -1,0 +1,38 @@
+// test met query API van DataStory Gerrit Rietveld naar LeafLet
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map with Monumental Houses</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map { height: 400px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Fetch data from your API using fetch()
+    fetch('https://api.linkeddata.cultureelerfgoed.nl/queries/sablina-vis/geoGRietveld/98/run')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(function(house) {
+          var marker = L.marker([house.latitude, house.longitude]).addTo(map);
+          marker.bindPopup(house.name);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  </script>
+</body>
+</html>
