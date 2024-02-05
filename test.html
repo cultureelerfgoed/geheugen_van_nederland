@@ -41,7 +41,7 @@
 
   <script>
 
-  var map = L.map('map').setView([51.9, 4.5], 7);
+var map = L.map('map').setView([51.9, 4.5], 7);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
@@ -56,10 +56,10 @@
     })
     .then(data => {
       console.log(data); // Log the fetched data to the console for inspection
-      if (!data.results || !data.results.bindings) {
-        throw new Error('Invalid data format: Missing "results" or "bindings" property');
+      if (!data.results) {
+        throw new Error('Invalid data format: Missing "results" property');
       }
-      data.results.bindings.forEach(function(binding) {
+      data.results.forEach(function(binding) {
         // Extract coordinates
         var shape = binding.shape.value;
         var coordinates = parseCoordinates(shape);
