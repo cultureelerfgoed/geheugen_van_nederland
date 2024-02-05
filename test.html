@@ -40,11 +40,11 @@
   <div id="map"></div>
 
   <script>
-    var map = L.map('map').setView([51.9, 4.5], 13);
+    var map = L.map('map').setView([51.9, 4.5], 7);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
+  
     // Fetch data from the API
     fetch('https://api.linkeddata.cultureelerfgoed.nl/queries/rce/Query-6-1-1-1-2-1/3/run?')
       .then(response => {
@@ -54,17 +54,31 @@
         return response.json();
       })
       .then(data => {
-      console.log(data); // Log the fetched data to the console for inspection
-      data.results.bindings.forEach(function(shape) {
-        var marker = L.marker([shape.latitude.value, shape.longitude.value]).addTo(map);
-        marker.bindPopup(shape.name.value);
-      });
-      document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
+        console.log(data); // Log the fetched data to the console for inspection
+        data.results.bindings.forEach(function(binding) {
+          // Extract coordinates
+          var shape = binding.shape.value;
+          var coordinates = parseCoordinates(shape);
+  
+          // Extract additional information
+          var name = binding.shapeLabel.value;
+  
+          // Create marker and add it to the map
+          var marker = L.marker(coordinates).addTo(map);
+          marker.bindPopup(name);
+        });
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
       });
+  
+    // Function to parse WKT coordinates
+    function parseCoordinates(wkt) {
+      var regex = /\d+\.\d+/g;
+      var matches = wkt.match(regex);
+      return [parseFloat(matches[1]), parseFloat(matches[0])]; // Assuming WKT format is POINT(longitude latitude)
+    }
   </script>
+  
 </body>
 </html>
