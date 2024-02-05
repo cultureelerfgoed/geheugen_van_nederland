@@ -73,11 +73,38 @@
       });
   
     // Function to parse WKT coordinates
-    function parseCoordinates(wkt) {
-      var regex = /\d+\.\d+/g;
-      var matches = wkt.match(regex);
-      return [parseFloat(matches[1]), parseFloat(matches[0])]; // Assuming WKT format is POINT(longitude latitude)
+// Function to parse WKT coordinates for polygons and multipolygons
+function parseCoordinates(wkt) {
+  var regex = /\d+\.\d+/g;
+  var matches = wkt.match(regex);
+  
+  // Check if it's a multipolygon
+  if (matches.length % 2 !== 0) {
+    var coordinates = [];
+    var currentPolygon = [];
+    for (var i = 0; i < matches.length; i += 2) {
+      var lat = parseFloat(matches[i]);
+      var lng = parseFloat(matches[i + 1]);
+      currentPolygon.push([lat, lng]);
+      if (i > 0 && lat === parseFloat(matches[0]) && lng === parseFloat(matches[1])) {
+        // End of current polygon, add to coordinates array and start a new polygon
+        coordinates.push(currentPolygon);
+        currentPolygon = [];
+      }
     }
+    return coordinates;
+  } else {
+    // Single polygon, return as a single array
+    var coordinates = [];
+    for (var i = 0; i < matches.length; i += 2) {
+      var lat = parseFloat(matches[i]);
+      var lng = parseFloat(matches[i + 1]);
+      coordinates.push([lat, lng]);
+    }
+    return coordinates;
+  }
+}
+
   </script>
   
 </body>
