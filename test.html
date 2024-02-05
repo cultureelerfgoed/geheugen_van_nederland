@@ -77,11 +77,24 @@
   
     // Function to parse WKT coordinates for polygons and multipolygons
     function parseCoordinates(wkt) {
+      // Extract coordinates for the first polygon only
+      var polygonStartIndex = wkt.indexOf("POLYGON(");
+      if (polygonStartIndex !== -1) {
+        var polygonEndIndex = wkt.indexOf(")", polygonStartIndex);
+        var polygonWKT = wkt.substring(polygonStartIndex + 8, polygonEndIndex); // Exclude "POLYGON(" and ")"
+        var coordinates = polygonWKT.split(",").map(function(point) {
+          var coords = point.trim().split(" ");
+          return [parseFloat(coords[1]), parseFloat(coords[0])]; // Reversed for Leaflet format
+        });
+        return coordinates;
+      }
+  
+      // If not a multipolygon, treat it as a single polygon or point
       var coordinates = wkt.substring(wkt.indexOf("(") + 1, wkt.indexOf(")")).split(" ");
-      var leafletCoordinates = [parseFloat(coordinates[1]), parseFloat(coordinates[0])];
-      return leafletCoordinates;
+      return [[parseFloat(coordinates[1]), parseFloat(coordinates[0])]]; // Wrap in array
     }
   </script>
+  
   
   
 </body>
