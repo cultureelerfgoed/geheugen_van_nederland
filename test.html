@@ -54,11 +54,12 @@
         return response.json();
       })
       .then(data => {
-        data.results.bindings.forEach(function(house) {
-          var marker = L.marker([house.latitude.value, house.longitude.value]).addTo(map);
-          marker.bindPopup(house.name.value);
-        });
-        document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
+      console.log(data); // Log the fetched data to the console for inspection
+      data.results.bindings.forEach(function(house) {
+        var marker = L.marker([house.latitude.value, house.longitude.value]).addTo(map);
+        marker.bindPopup(house.name.value);
+      });
+      document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
       })
       .catch(error => {
         console.error('Error fetching data:', error);
