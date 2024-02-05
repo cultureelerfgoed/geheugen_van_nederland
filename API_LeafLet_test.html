@@ -1,5 +1,3 @@
-// test met query API van DataStory Gerrit Rietveld naar LeafLet
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +34,9 @@
   </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
-      </div>
+  </div>
   <div id="map"></div>
 
   <script>
@@ -47,17 +45,24 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Fetch data from your API using fetch()
+    // Fetch data from the API
     fetch('https://api.linkeddata.cultureelerfgoed.nl/queries/rce/Query-6-1-1-1-2-1/3/run?')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
-        data.forEach(function(house) {
-          var marker = L.marker([house.latitude, house.longitude]).addTo(map);
-          marker.bindPopup(house.name);
+        data.results.bindings.forEach(function(house) {
+          var marker = L.marker([house.latitude.value, house.longitude.value]).addTo(map);
+          marker.bindPopup(house.name.value);
         });
+        document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
       })
       .catch(error => {
         console.error('Error fetching data:', error);
+        document.getElementById('loadingOverlay').style.display = 'none'; // Hide loading overlay
       });
   </script>
 </body>
