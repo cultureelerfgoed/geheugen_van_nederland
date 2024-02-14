@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map with SPARQL Data</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 400px; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.9, 4.5], 13); // Initialize map with default center and zoom
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", reqListener);
+        xhr.addEventListener("error", reqError);
+        xhr.addEventListener("abort", reqAbort);
+        xhr.open("GET", "https://api.linkeddata.cultureelerfgoed.nl/queries/rce/Query-6-1-1-1-2-1/3/run?");
+        xhr.send();
+
+        function reqListener () {
+            var data = JSON.parse(this.responseText);
+            L.geoJSON(data, {
+                pointToLayer: function(feature, latlng) {
+                    return L.marker(latlng);
+                }
+            }).addTo(map);
+        }
+
+        function reqError(err) {
+            console.error("Error fetching data:", err);
+        }
+
+        function reqAbort() {
+            console.error("Request aborted");
+        }
+    </script>
+</body>
+</html>
+
+

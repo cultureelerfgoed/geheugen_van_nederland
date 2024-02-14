@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SPARQL Leaflet Map</title>
+ 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-sparql@1.2.4/leaflet-sparql.min.js"></script>
+
+ 
+
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var map = L.map('map').setView([51.9, 4.5], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var sparqlUrl = 'https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/services/cho/sparql';
+    var sparqlQuery = `
+    PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix geo: <http://www.opengis.net/ont/geosparql#>
+    prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+    prefix overheid: <http://standaarden.overheid.nl/owms/terms/> 
+    PREFIX bif: <http://www.openlinksw.com/schemas/bif#>
+    PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+    PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+
+    SELECT *
+
+    {
+
+      ?rm a ceo:Rijksmonument .
+      ?rm ceo:rijksmonumentnummer ?rm_n . 
+      ?rm ceo:heeftMonumentAard ?aard .
+      ?rm ceo:heeftGeometrie/geo:asWKT ?shape_rm.
+      ?rm ceo:heeftBasisregistratieRelatie/ceo:heeftProvincie <http://standaarden.overheid.nl/owms/terms/Groningen_(provincie)> .
+      ?rm ceo:heeftLocatieAanduiding/ceo:locatienaam ?locatieNaam_ab .
+
+
+        bind("purple" as ?shape_rmColor)
+      BIND(<https://haleconnect.com/ows/services/org.874.7e01e60c-8887-425c-af9b-e2cf6af9181b_wms?SERVICE=WMS&Request=GetCapabilities> as ?mapEndpoint)
+
+    }
+    LIMIT 250
+    `;
+
+    var sparql = new L.Sparql({
+        endpoint: sparqlUrl,
+        query: sparqlQuery
+    });
+
+    sparql.getResults().then(function(results) {
+        results.forEach(function(feature) {
+            var marker = L.marker([feature.lat, feature.lon])
+                .addTo(map)
+                .bindPopup(feature.label);
+        });
+    });
+</script>
+</body>
+</html>
